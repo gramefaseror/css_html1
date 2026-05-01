@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roadmap table</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <table>
+      <thead>
+        <caption class="caption">Providers</caption>
+      <tr>
+        <th>Provider Name</th>
+        <th>E-mail</th>
+        <th></th>
+      </tr>
+    </thead>
+      <tbody class="table-body">
+      <tr>
+        <td>X-city</td>
+        <td>x-city@test-email.com</td>
+        <td><button>Select</button></td>
+      </tr>
+
+      <tr>
+        <td>Kievstar</td>
+        <td>kievstar@test-email.com</td>
+        <td><button>Select</button></td>
+      </tr>
+
+      <tr>
+        <td>Life</td>
+        <td>life@test-email.com</td>
+        <td><button>Select</button></td>
+      </tr>
+
+      <tr>
+        <td>InfoDom</td>
+        <td>infodom@test-email.com</td>
+        <td><button>Select</button></td>
+      </tr>
+    </tbody>
+
+      <tr>
+        <td colspan="3" class="merged">Year 2024</td>
+      </tr>
+
+      <tfoot class="table-foot">
+
+          <tr>
+        <td rowspan="2" class="grouped">
+        </td>
+        <td>2</td>
+        <td rowspan="3" class="grouped">3</td>
+
+          </tr>
+          <tr>
+            <td>5</td> 
+          </tr>
+          <tr>
+          <td colspan="2" class="grouped">7</td>
+          </tr>
+        </tfoot>
+  </table>
+
+  <table>
+  <colgroup>
+    <col span="2" style="background-color: #7f3232" />
+    <col style="background-color: #f44100" />
+    <col style="background-color: #2424aa" />
+    <col style="background-color: #28a062" />
+  </colgroup>
+  <tr>
+    <th>Понеділок</th>
+    <th>Вівторок</th>
+    <th>Середа</th>
+    <th>Четвер</th>
+    <th>П'ятниця</th>
+  </tr>
+  <tr>
+    <td>Математика</td>
+    <td>Фізика</td>
+    <td>Історія</td>
+    <td>Біологія</td>
+    <td>Фіз-ра</td>
+  </tr>
+  <tr>
+    <td>Хімія</td>
+    <td>Географія</td>
+    <td>Біологія</td>
+    <td>Фіз-ра</td>
+    <td>Фіз-ра</td>
+  </tr>
+</table>
+  </body>
 </html>

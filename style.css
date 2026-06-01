@@ -106,3 +106,98 @@ body {
         gap: 2rem;
     }
 }
+
+
+/* ==========================================================================
+   Стилі для сторінки перегляду (card1.html)
+   ========================================================================== */
+
+/* Панель навігації */
+.page-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 0;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.back-link .arrow {
+    margin-right: 0.6rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: transform var(--transition);
+}
+
+/* Ефект легкого руху стрілочки ліворуч при наведенні */
+.back-link:hover {
+    color: #666;
+}
+
+.back-link:hover .arrow {
+    transform: translateX(-4px);
+}
+
+/* Контейнер сторінки */
+.page-container {
+    max-width: 900px; /* Зручна ширина для читання документів */
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+
+.page-header {
+    margin-bottom: 2.5rem;
+}
+
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4rem;
+}
+
+.page-subtitle {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Адаптивний контейнер для PDF */
+.pdf-viewer-container {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid var(--line-color);
+    overflow: hidden;
+}
+
+.pdf-iframe {
+    width: 100%;
+    height: 750px; /* Комфортна висота для перегляду на десктопі */
+    border: none;
+    display: block;
+}
+
+/* Адаптація під мобільні екрани */
+@media (max-width: 600px) {
+    .page-nav {
+        padding: 1.5rem 1.5rem 0;
+    }
+
+    .page-container {
+        padding: 1.5rem 1.5rem 4rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .pdf-iframe {
+        height: 480px; /* Зменшуємо висоту на смартфонах */
+    }
+}

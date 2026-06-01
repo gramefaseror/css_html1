@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мачачка — Перегляд</title>
+    <title>Документи — Перегляд</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,19 +16,85 @@
 
     <main class="page-container">
         <header class="page-header">
-            <h1 class="page-title">Мачачка</h1>
-            <p class="page-subtitle">Перегляд прикріпленого документа</p>
+            <h1 class="page-title">Мачачка та інші традиції</h1>
+            <p class="page-subtitle">Оберіть документ для перегляду (всього 12 матеріалів)</p>
         </header>
 
-        <div class="pdf-viewer-container">
-            <iframe 
-                src="https://docs.google.com/document/d/1aOp-xsOua1sStc6akpxQmd7YDwUp4jCG/edit?usp=sharing&ouid=114287692870035455148&rtpof=true&sd=true" 
-                class="pdf-iframe" 
-                allow="autoplay" 
-                loading="lazy">
-            </iframe>
-        </div>
+        <div class="doc-grid">
+            
+            <div class="doc-card" data-src="https://docs.google.com/document/d/1aOp-xsOua1sStc6akpxQmd7YDwUp4jCG/edit?usp=sharing&ouid=114287692870035455148&rtpof=true&sd=true">
+                <div class="doc-card-image">
+                    <img src="https://placehold.co/400x500/e2dfd8/2a2a2a?text=Док+1" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">1. Рецептура та технологія</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1_EXAMPLE_ID_2/preview">
+                <div class="doc-card-image">
+                    <img src="https://placehold.co/400x500/e2dfd8/2a2a2a?text=Док+2" alt="Обкладинка 2">
+                </div>
+                <h3 class="doc-card-title">2. Історія походження</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1_EXAMPLE_ID_3/preview">
+                <div class="doc-card-image">
+                    <img src="https://placehold.co/400x500/e2dfd8/2a2a2a?text=Док+3" alt="Обкладинка 3">
+                </div>
+                <h3 class="doc-card-title">3. Секрети приготування</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1_EXAMPLE_ID_4/preview">
+                <div class="doc-card-image">
+                    <img src="https://placehold.co/400x500/e2dfd8/2a2a2a?text=Док+4" alt="Обкладинка 4">
+                </div>
+                <h3 class="doc-card-title">4. Традиційна подача</h3>
+            </div>
+
+            </div>
     </main>
+
+    <div id="docModal" class="modal-overlay">
+        <div class="modal-window">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            
+            <div class="modal-body">
+                <iframe src="" id="modalIframe" class="modal-iframe" allow="autoplay" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.doc-card');
+        const modal = document.getElementById('docModal');
+        const iframe = document.getElementById('modalIframe');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        // Відкриття при натисканні на картку
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const docUrl = card.getAttribute('data-src');
+                iframe.src = docUrl; // Встановлюємо посилання у фрейм
+                modal.classList.add('active'); // Показуємо модальне вікно
+                document.body.style.overflow = 'hidden'; // Блокуємо прокрутку основного сайту
+            });
+        });
+
+        // Закриття при натисканні на хрестик
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закриття при натисканні на затемнений фон навколо документа
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.remove('active'); // Ховаємо вікно
+            iframe.src = ''; // Очищуємо фрейм, щоб документ зупинив завантаження
+            document.body.style.overflow = ''; // Повертаємо прокрутку сайту
+        }
+    </script>
 
 </body>
 </html>

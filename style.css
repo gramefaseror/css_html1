@@ -201,3 +201,139 @@ body {
         height: 480px; /* Зменшуємо висоту на смартфонах */
     }
 }
+
+/* ==========================================================================
+   Нові стилі для сітки документів та модального вікна (В повний екран)
+   ========================================================================== */
+
+/* Нова сітка для 12 документів (картки трохи менші, щоб зручно дивитись) */
+.doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2.5rem 1.5rem;
+}
+
+.doc-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.doc-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background-color: var(--line-color);
+    margin-bottom: 0.8rem;
+}
+
+.doc-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+}
+
+.doc-card:hover .doc-card-image img {
+    transform: scale(1.04);
+}
+
+.doc-card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: color var(--transition);
+}
+
+.doc-card:hover .doc-card-title {
+    color: #666;
+}
+
+/* Затемнений фон для модального вікна */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Темний напівпрозорий фон */
+    backdrop-filter: blur(4px); /* Легке розмиття заднього плану */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+    padding: 20px;
+}
+
+/* Активація вікна через JavaScript */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Вікно з документом (майже на весь екран) */
+.modal-window {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1100px; /* Обмежуємо максимальну ширину для комфорту */
+    height: 90vh; /* Займає 90% висоти екрану */
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--line-color);
+    transform: translateY(20px);
+    transition: transform var(--transition);
+}
+
+.modal-overlay.active .modal-window {
+    transform: translateY(0);
+}
+
+/* Кнопка закриття (хрестик) */
+.modal-close {
+    position: absolute;
+    top: -40px; /* Виносимо хрестик вище вікна */
+    right: 0;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity var(--transition);
+}
+
+.modal-close:hover {
+    opacity: 0.7;
+}
+
+/* Тіло модального вікна, де відображається iframe */
+.modal-body {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Адаптивність модального вікна для мобільних пристроїв */
+@media (max-width: 600px) {
+    .modal-overlay {
+        padding: 10px;
+    }
+    
+    .modal-window {
+        height: 85vh;
+    }
+    
+    .modal-close {
+        top: -35px;
+        font-size: 2rem;
+    }
+}

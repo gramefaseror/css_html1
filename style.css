@@ -361,9 +361,43 @@ body {
 }
 
 /* Адаптація під мобільні телефони */
+/* Адаптивність модального вікна для мобільних пристроїв */
 @media (max-width: 600px) {
-    .single-doc-container {
-        padding: 1rem 1rem 2rem;
-        height: calc(100vh - 90px); /* Трохи коригуємо висоту на смартфонах */
+    .modal-overlay {
+        padding: 0; /* Прибираємо сірі відступи, щоб дати максимум простору */
+    }
+    
+    .modal-window {
+        height: 100vh; /* Розтягуємо вікно на всі 100% висоти екрана */
+        max-width: 100%;
+        border: none;
+        transform: none; /* Відключаємо анімацію появи для стабільності на телефонах */
+    }
+    
+    .modal-body {
+        width: 100%;
+        height: 100%;
+        overflow-x: auto; /* Додаємо можливість гортати текст вліво-вправо */
+        -webkit-overflow-scrolling: touch; /* Робить гортання плавним на iPhone */
+    }
+    
+    .modal-iframe {
+        min-width: 100%; /* Гарантуємо, що фрейм не буде стискатися менше екрана */
+    }
+    
+    .modal-close {
+        top: 15px; /* Опускаємо хрестик всередину вікна, бо тепер воно на весь екран */
+        right: 15px;
+        /* Робимо темну напівпрозору підкладку, щоб хрестик не зливався з текстом */
+        background-color: rgba(0, 0, 0, 0.5); 
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        padding-bottom: 4px; /* Візуальне центрування хрестика */
+        z-index: 10;
     }
 }

@@ -125,13 +125,15 @@ body {
     text-decoration: none;
     color: var(--text-color);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600; /* Зробили текст жирнішим (раніше було 500) */
+    margin-left: -15px; /* Зсуваємо всю кнопку трохи лівіше */
     transition: color var(--transition);
 }
 
 .back-link .arrow {
     margin-right: 0.6rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Трохи збільшили саму стрілочку */
+    font-weight: 800; /* Зробили стрілочку максимально жирною */
     display: inline-block;
     transition: transform var(--transition);
 }

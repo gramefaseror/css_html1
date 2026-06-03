@@ -55,7 +55,6 @@ body {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    border-radius: 10px;
 }
 
 .card-image-wrapper {
@@ -64,6 +63,7 @@ body {
     overflow: hidden;
     background-color: var(--line-color);
     margin-bottom: 1.2rem;
+    border-radius: 10px;
 }
 
 .card-image-wrapper img {
@@ -71,6 +71,33 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition);
+}
+
+/* ==========================================================================
+   Стилі для розділів (секцій) на головній сторінці
+   ========================================================================== */
+.book-section {
+    margin-bottom: 7rem; /* Великий відступ між цілими секціями */
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem; /* Відступ від заголовка до карток */
+    border-bottom: 1px solid var(--line-color);
+    padding-bottom: 0.8rem;
+}
+
+/* Адаптація відступів секцій для телефонів */
+@media (max-width: 600px) {
+    .book-section {
+        margin-bottom: 5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.8rem;
+    }
 }
 
 /* Анімація при наведенні */
@@ -159,6 +186,10 @@ body {
     margin-bottom: 2.5rem;
 }
 
+.card-grid {
+        gap: 2rem;
+    }
+
 .page-title {
     font-size: 2.2rem;
     font-weight: 400;
@@ -228,6 +259,7 @@ body {
     overflow: hidden;
     background-color: var(--line-color);
     margin-bottom: 0.8rem;
+    border-radius: 10px;
 }
 
 .doc-card-image img {

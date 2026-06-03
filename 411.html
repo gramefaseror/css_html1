@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кухня народів світу</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="page-nav">
+        <a href="index.html" class="back-link">
+            <span class="arrow">←</span> Повернутись до змісту
+        </a>
+    </nav>
+
+    <main class="page-container">
+        <header class="page-header">
+            <h1 class="page-title">Кухня народів світу</h1>
+            <p class="page-subtitle">Оберіть документ для перегляду (12 матеріалів)</p>
+        </header>
+
+        <div class="doc-grid">
+            
+            <div class="doc-card" data-src="https://docs.google.com/document/d/1pitUI-5dQ0J9hitvSoyrCcFGXrjfPFAoB9U43OAcK6U/edit?usp=sharing">
+                <div class="doc-card-image">
+                    <img src="https://placehold.co/400x500/e2dfd8/2a2a2a?text=Док+1" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">1. Види та призначення посуду, способи їх зберігання. Правила полірування столового посуду.</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://docs.google.com/document/d/1hmo7TQ21aqb5C13BM7lpAOfGEa306vxTyjPX9JVi1qU/edit?usp=drive_link">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1fdl8XqRwyp8KTirRag03YPrVznGa2Qx0" alt="Обкладинка 2">
+                </div>
+                <h3 class="doc-card-title">2. Види та призначення приборів, столової білизни, способи їх зберігання. Правила полірування столових приборів.</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://docs.google.com/document/d/1QjlLya1yrB71i64VDqlQ1bLkP2GdgP-I/edit?usp=sharing&ouid=114287692870035455148&rtpof=true&sd=true">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1sFNz9E_hMhJJhTw5r1Y2J98M3jktwWpt" alt="Обкладинка 3">
+                </div>
+                <h3 class="doc-card-title">3. Форми складання серветок. Правила оформлення столу квітами та іншими прикрасами.</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://docs.google.com/document/d/1_1AxVtlHqIt_kywT9t6cN2rJd-pDQDEy-QBy7j23nFc/edit?usp=sharing">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1g9DS5HY4G6V44H0kN34jJi8abct-C5gB" alt="Обкладинка 4">
+                </div>
+                <h3 class="doc-card-title">4. Види сервірування столів. Сервірування столів до сніданку. Сервірування столів до обіду</h3>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="docModal" class="modal-overlay">
+        <div class="modal-window">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            
+            <div class="modal-body">
+                <iframe src="" id="modalIframe" class="modal-iframe" allow="autoplay" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.doc-card');
+        const modal = document.getElementById('docModal');
+        const iframe = document.getElementById('modalIframe');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        // Відкриття при натисканні на картку
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const docUrl = card.getAttribute('data-src');
+                iframe.src = docUrl; // Встановлюємо посилання у фрейм
+                modal.classList.add('active'); // Показуємо модальне вікно
+                document.body.style.overflow = 'hidden'; // Блокуємо прокрутку основного сайту
+            });
+        });
+
+        // Закриття при натисканні на хрестик
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закриття при натисканні на затемнений фон навколо документа
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.remove('active'); // Ховаємо вікно
+            iframe.src = ''; // Очищуємо фрейм, щоб документ зупинив завантаження
+            document.body.style.overflow = ''; // Повертаємо прокрутку сайту
+        }
+    </script>
+
+</body>
+</html>

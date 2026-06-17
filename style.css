@@ -444,6 +444,27 @@ body {
    Стилі для блоків відео (підпис знизу)
    ========================================================================== */
 
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    /* Цей відступ зберігає ідеальну пропорцію екрана відео 16:9 */
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    background-color: var(--line-color);
+    border-radius: 10px; /* Заокруглені кути в стилі карток */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 .video-block {
     margin-bottom: 5rem; /* Великий пробіл ДО наступного відео */
 }

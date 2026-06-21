@@ -470,18 +470,17 @@ body {
    ========================================================================== */
 
 .video-block {
-    margin-bottom: 5rem; /* Цей великий пробіл до наступного блоку залишаємо */
+    margin-bottom: 5rem; 
 }
 
 .video-caption {
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--text-color);
-    margin-top: 0; /* Прибрали зайвий простір зверху */
-    margin-bottom: 2.4rem; /* Додали акуратний відступ ЗНИЗУ до самого відео */
+    margin-top: 0; 
+    margin-bottom: 1.2rem; 
 }
 
-/* Оновлення для телефонів */
 @media (max-width: 600px) {
     .video-block {
         margin-bottom: 3.5rem;
@@ -489,6 +488,6 @@ body {
     .video-caption {
         font-size: 1.2rem;
         margin-top: 0;
-        margin-bottom: 1rem; /* Відступ до відео на телефонах */
+        margin-bottom: 1rem; 
     }
 }

@@ -478,7 +478,7 @@ body {
     font-weight: 500;
     color: var(--text-color);
     margin-top: 0; 
-    margin-bottom: 1.2rem; 
+    margin-bottom: 0.6rem; 
 }
 
 @media (max-width: 600px) {

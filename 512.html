@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МРО 5.1.2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="page-nav">
+        <a href="index.html" class="back-link">
+            <span class="arrow">←</span> Повернутись до змісту
+        </a>
+    </nav>
+
+    <main class="page-container">
+        <header class="page-header">
+            <h1 class="page-title">МРО 5.1.2 Організація обслуговування прийомів і бенкетів, спеціальних видів та інших заходів</h1>
+            <p class="page-subtitle">Оберіть документ для перегляду</p>
+        </header>
+
+        <div class="doc-grid">
+            
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1zfPKZTzxFrFswfKTG1TgdUsq5VHp0yTS/preview">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1Q77nYRs113QiSnpcS39hAgUXVDeL3crF" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">1. Підготовка залу та сервірування</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1E3gWASK0VZBStKDky2gaHnAp6ojiTpoX/preview">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1C7IVZeHYscMdVdjJVC-RaJhX9qAjC5DX" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">2. Робота з меню та картами напоїв</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1VROS2SrualDrSGkkEpxHwgBNMMOFMOFm/preview">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1cJ0krrh540vjzL9zSf1Fd09GR-vgl30_" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">3. Технологія та правила подавання страв</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1M6vlLNS7UHQtf4_gIW6qi2GeJrD_paVu/preview">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1cJ0krrh540vjzL9zSf1Fd09GR-vgl30_" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">4. Подавання напоїв та основи роботи сомельє</h3>
+            </div>
+
+            <div class="doc-card" data-src="https://drive.google.com/file/d/1KN8bpRXKRhDOFjFXn-rEw__OQs_bEg15/preview">
+                <div class="doc-card-image">
+                    <img src="https://lh3.googleusercontent.com/d/1cJ0krrh540vjzL9zSf1Fd09GR-vgl30_" alt="Обкладинка 1">
+                </div>
+                <h3 class="doc-card-title">5. Безпека та санітарія</h3>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="docModal" class="modal-overlay">
+        <div class="modal-window">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            
+            <div class="modal-body">
+                <iframe src="" id="modalIframe" class="modal-iframe" allow="autoplay" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.doc-card');
+        const modal = document.getElementById('docModal');
+        const iframe = document.getElementById('modalIframe');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        // Відкриття при натисканні на картку
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const docUrl = card.getAttribute('data-src');
+                iframe.src = docUrl; // Встановлюємо посилання у фрейм
+                modal.classList.add('active'); // Показуємо модальне вікно
+                document.body.style.overflow = 'hidden'; // Блокуємо прокрутку основного сайту
+            });
+        });
+
+        // Закриття при натисканні на хрестик
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закриття при натисканні на затемнений фон навколо документа
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.remove('active'); // Ховаємо вікно
+            iframe.src = ''; // Очищуємо фрейм, щоб документ зупинив завантаження
+            document.body.style.overflow = ''; // Повертаємо прокрутку сайту
+        }
+    </script>
+
+</body>
+</html>

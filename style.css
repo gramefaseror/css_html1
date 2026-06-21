@@ -477,7 +477,7 @@ body {
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--text-color);
-    margin-top: 0; /* Прибрали зайвий простір зверху */
+    margin-top: 1.2rem; /* Прибрали зайвий простір зверху */
     margin-bottom: 1.2rem; /* Додали акуратний відступ ЗНИЗУ до самого відео */
 }
 

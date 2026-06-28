@@ -522,7 +522,7 @@ body {
 }
 
 .sidebar-link {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--text-color);
     font-size: 1.05rem;
     font-weight: 500;

@@ -566,3 +566,35 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* ==========================================================================
+   Екран завантаження (Splash Screen)
+   ========================================================================== */
+
+.splash-screen {
+    position: fixed; /* Фіксуємо поверх усього екрана */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color); /* Використовуємо ваш фірмовий колір фону */
+    z-index: 9999; /* Робимо так, щоб він був вище за всі інші елементи сайту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Налаштування плавного зникнення (0.8 секунди) */
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out; 
+}
+
+.splash-image {
+    width: 280px; /* Зручний розмір для обкладинки */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Красива тінь, щоб книга виглядала об'ємно */
+}
+
+/* Цей клас додаватиметься скриптом, щоб сховати екран */
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}

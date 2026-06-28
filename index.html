@@ -8,6 +8,10 @@
 </head>
 <body>
 
+    <div id="splash-screen" class="splash-screen">
+        <img src="https://lh3.googleusercontent.com/d/1odGJFTvxYqw-lnNta1NgdFen8l8KY2PM" alt="Обкладинка підручника" class="splash-image">
+    </div>
+
     <header class="book-header">
         <h1>
             Організація обслуговування
@@ -19,7 +23,6 @@
         
         <aside class="sidebar">
             <nav class="sidebar-nav">
-                <a href="#" class="sidebar-link">Головна (Зміст)</a>
                 <a href="#mro41" class="sidebar-link">МРО 4.1 Організація обслуговування</a>
                 <a href="#mro42" class="sidebar-link">МРО 4.2 Організація постачання</a>
                 <a href="#mro51" class="sidebar-link">МРО 5.1 Обслуговування клієнтів</a>
@@ -160,6 +163,18 @@
 
         </main>
     </div>
+
+    <script>
+        // Чекаємо, поки завантажиться весь контент сторінки
+        window.addEventListener('load', function() {
+            const splash = document.getElementById('splash-screen');
+            
+            // Затримка перед зникненням (1500 = 1.5 секунди)
+            setTimeout(function() {
+                splash.classList.add('hidden'); // Додаємо клас, який плавно ховає екран
+            }, 1500); 
+        });
+    </script>
 
 </body>
 </html>

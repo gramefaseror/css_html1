@@ -491,3 +491,79 @@ body {
         margin-bottom: 1rem; 
     }
 }
+
+/* ==========================================================================
+   Макет із боковим меню (Sidebar Layout)
+   ========================================================================== */
+
+/* Загальний контейнер, який ділить екран на 2 колонки */
+.layout-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    /* 260px для меню зліва, 1fr (залишок місця) для карток справа */
+    grid-template-columns: 260px 1fr; 
+    gap: 4rem; 
+    align-items: start; 
+}
+
+/* Налаштування самого бокового меню */
+.sidebar {
+    position: sticky; /* Меню "прилипає" при прокрутці сторінки вниз */
+    top: 2rem; 
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; 
+    border-right: 1px solid var(--line-color); /* Лінія між меню та картками */
+    padding-right: 2rem;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: color var(--transition), transform var(--transition);
+    display: inline-block;
+}
+
+/* Ефект при наведенні на пункт меню */
+.sidebar-link:hover {
+    color: #666;
+    transform: translateX(5px); 
+}
+
+/* Прибираємо старі відступи контенту, щоб вони не ламали новий макет */
+.main-content {
+    padding: 0; 
+    max-width: 100%; 
+}
+
+/* Адаптація для телефонів та планшетів (меню перестрибне наверх) */
+@media (max-width: 900px) {
+    .layout-wrapper {
+        grid-template-columns: 1fr; /* Робимо 1 колонку */
+        gap: 2rem;
+    }
+    
+    .sidebar {
+        position: static; /* Відключаємо прилипання на телефоні */
+    }
+    
+    .sidebar-nav {
+        border-right: none;
+        border-bottom: 1px solid var(--line-color); /* Лінія переїжджає вниз */
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+        flex-direction: row; /* Пункти меню стають в рядок */
+        flex-wrap: wrap; 
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}

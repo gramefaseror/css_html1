@@ -500,7 +500,7 @@ body {
 .layout-wrapper {
     max-width: 1600px; /* ЗБІЛЬШИЛИ з 1300px до 1600px (або навіть 1800px) */
     margin: 0 auto;
-    padding: 0 1 2rem; /* Якщо хочете ще ближче до самого краю екрана, зробіть 0 1rem */
+    padding: 0 2rem; /* Якщо хочете ще ближче до самого краю екрана, зробіть 0 1rem */
     display: grid;
     grid-template-columns: 260px 1fr; 
     gap: 4rem; /* Відстань між меню та контентом (картками) */
